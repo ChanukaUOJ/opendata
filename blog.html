@@ -75,22 +75,23 @@ description: "Empowering communities through transparent access to public inform
       </div>
 
       <!-- Pagination Controls -->
-      <div id="pagination-controls" class="flex items-center justify-center space-x-4 mt-12" style="display: none;">
-        <button id="prev-btn"
-          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-0"
+      <nav id="pagination-controls" aria-label="Pagination" class="flex items-center justify-center space-x-4 mt-12"
+        style="display: none;">
+        <button id="prev-btn" aria-label="Previous page"
+          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
           disabled>
-          <i data-lucide="chevron-left" class="h-4 w-4"></i>
+          <i data-lucide="chevron-left" class="h-4 w-4" aria-hidden="true"></i>
         </button>
 
         <div id="page-numbers" class="flex items-center space-x-2 text-sm">
           <!-- Page numbers will be dynamically inserted here -->
         </div>
 
-        <button id="next-btn"
-          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-0">
-          <i data-lucide="chevron-right" class="h-4 w-4"></i>
+        <button id="next-btn" aria-label="Next page"
+          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+          <i data-lucide="chevron-right" class="h-4 w-4" aria-hidden="true"></i>
         </button>
-      </div>
+      </nav>
 
       <!-- Results Info -->
       <div id="results-info" class="text-center mt-8 text-gray-600 text-sm"
@@ -196,11 +197,6 @@ description: "Empowering communities through transparent access to public inform
       showingStart.textContent = startIndex + 1;
       showingEnd.textContent = endIndex;
 
-      // Smooth scroll to top of articles section
-      // document.getElementById('hehe').scrollIntoView({
-      //   behavior: 'smooth',
-      //   block: 'start'
-      // });
     }
 
     function renderPageNumbers() {
@@ -209,6 +205,7 @@ description: "Empowering communities through transparent access to public inform
       for (let i = 1; i <= totalPages; i++) {
         const pageBtn = document.createElement('button');
         pageBtn.textContent = i;
+        pageBtn.setAttribute('aria-label', `Page ${i}`);
         pageBtn.style.fontFamily = "'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif";
 
         pageBtn.addEventListener('click', () => {
@@ -224,9 +221,11 @@ description: "Empowering communities through transparent access to public inform
       pageButtons.forEach((btn, index) => {
         const page = index + 1;
         if (page === currentPage) {
-          btn.className = 'w-8 h-8 rounded-md bg-gray-900 text-white transition-colors focus:outline-none focus:ring-0';
+          btn.className = 'w-8 h-8 rounded-md bg-gray-900 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
+          btn.setAttribute('aria-current', 'page');
         } else {
-          btn.className = 'w-8 h-8 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-0';
+          btn.className = 'w-8 h-8 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
+          btn.removeAttribute('aria-current');
         }
       });
     }
