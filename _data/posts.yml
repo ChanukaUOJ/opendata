@@ -1,3 +1,7 @@
+# Schema Note:
+# Keep 'translations' ordered strictly as ['en', 'si', 'ta'].
+# The main post title link in blog.html relies on translations[0] (English).
+
 - image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6X81yVDVMvvDpAXBZBABag.png"
   title: "Navigating Department Flows in Sri Lanka: A Visual Breakdown in OpenGINXplore"
   date: "2026-08-10"
