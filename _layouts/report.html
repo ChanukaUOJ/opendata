@@ -1,0 +1,102 @@
+---
+layout: default
+---
+<article class="py-10 bg-white">
+    <div class="container mx-auto px-6 md:px-8 max-w-6xl">
+        <!-- Header -->
+        <div class="mb-8">
+            <div class="flex items-center space-x-3 mb-4">
+                <a href="{{ '/reports' | relative_url }}"
+                    class="text-sm text-blue-600 hover:underline flex items-center">
+                    &larr; Back to Reports
+                </a>
+                <span class="text-gray-300">|</span>
+                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full font-medium">
+                    {{ page.date | date: "%B %d, %Y" }}
+                </span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                {{ page.title }}
+            </h1>
+            {% if page.source or page.body.source %}
+            <p class="text-sm text-gray-500 mt-2">Source: <span class="font-medium text-gray-700">{{ page.source |
+                    default: page.body.source }}</span></p>
+            {% endif %}
+        </div>
+
+        <!-- Cover Image -->
+        {% if page.cover and page.cover != "" %}
+        <div class="mb-8 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" class="w-full h-auto object-cover" />
+        </div>
+        {% endif %}
+
+        <!-- Introduction -->
+        {% if page.body.introduction and page.body.introduction != "" %}
+        <div class="text-lg text-gray-700 leading-relaxed mb-8 text-justify">
+            <p>{{ page.body.introduction }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Images Gallery -->
+        {% if page.body.images and page.body.images.size > 0 %}
+        <div class="flex flex-col gap-12 my-10 w-full">
+            {% for img in page.body.images %}
+            {% if img.img_url != "" %}
+            <figure class="w-full">
+                <div class="flex justify-center w-full mb-4">
+                    <img src="{{ img.img_url | relative_url }}" alt="{{ img.alt }}"
+                        class="max-w-3xl w-full h-auto object-contain rounded-xl border border-gray-200 shadow-sm" />
+                </div>
+                {% if img.description and img.description != "" %}
+                <figcaption class="w-full text-base text-gray-700 text-justify leading-relaxed">
+                    {{ img.description }}
+                </figcaption>
+                {% endif %}
+            </figure>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Main Markdown Body (if any) -->
+        <div class="report-content max-w-none text-gray-800">
+            {{ content }}
+        </div>
+
+        {% if page.buttons and page.buttons.size > 0 %}
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            {% for button in page.buttons %}
+            {% if button.url and button.url != "" %}
+            <a href="{{ button.url | relative_url }}" target="_blank"
+                class="text-xs md:text-sm inline-flex items-center border border-accent justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-white hover:text-accent transition-colors group"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>{{button.text}}</span>
+                <i data-lucide="arrow-right"
+                    class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>
+
+<style>
+    .report-content p {
+        margin-bottom: 1.5rem;
+        line-height: 1.75;
+        text-align: justify;
+    }
+
+    .report-content img {
+        margin-top: 2.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        max-width: 65%;
+        height: auto;
+        border-radius: 0.75rem;
+    }
+</style>
