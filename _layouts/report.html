@@ -32,10 +32,27 @@ layout: default
         {% endif %}
 
         <!-- Introduction -->
-        {% if page.body.introduction and page.body.introduction != "" %}
-        <div class="text-lg text-gray-700 leading-relaxed mb-8 text-justify">
-            <p>{{ page.body.introduction }}</p>
-        </div>
+        {% if page.introduction and page.introduction != "" %}
+        <section class="report-intro relative rounded-xl bg-gray-50 border border-gray-900 overflow-hidden p-6">
+            <p class="text-lg font-light text-gray-800 leading-relaxed text-justify mb-6">
+                {{ page.introduction }}
+            </p>
+            {% if page.buttons and page.buttons.size > 0 %}
+            <div class="flex flex-wrap justify-center gap-4">
+                {% for button in page.buttons %}
+                {% if button.url and button.url != "" %}
+                <a href="{{ button.url | relative_url }}" target="_blank"
+                    class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group {% if button.style == false %}bg-white text-gray-800 hover:text-gray-900{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <span>{{button.text}}</span>
+                    <i data-lucide="arrow-right"
+                        class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </section>
         {% endif %}
 
         <!-- Images Gallery -->
@@ -65,11 +82,11 @@ layout: default
         </div>
 
         {% if page.buttons and page.buttons.size > 0 %}
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <div class="flex flex-wrap justify-center gap-4">
             {% for button in page.buttons %}
             {% if button.url and button.url != "" %}
             <a href="{{ button.url | relative_url }}" target="_blank"
-                class="text-xs md:text-sm inline-flex items-center border border-accent justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-white hover:text-accent transition-colors group"
+                class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group {% if button.style == false %}bg-white text-gray-800 hover:text-gray-900{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                 <span>{{button.text}}</span>
                 <i data-lucide="arrow-right"
@@ -83,6 +100,15 @@ layout: default
 </article>
 
 <style>
+    .report-intro p::first-letter {
+        float: left;
+        font-size: 3.5rem;
+        line-height: 0.85;
+        font-weight: 700;
+        margin: 0.35rem 0.75rem 0 0;
+        color: #111827;
+    }
+
     .report-content p {
         margin-bottom: 1.5rem;
         line-height: 1.75;
