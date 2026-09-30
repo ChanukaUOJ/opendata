@@ -34,7 +34,7 @@ layout: default
         <!-- Introduction -->
         {% if page.introduction and page.introduction != "" %}
         <section class="report-intro relative rounded-xl bg-gray-50 border border-gray-900 overflow-hidden p-6">
-            <p class="text-lg font-light text-gray-800 leading-relaxed text-justify mb-6">
+            <p class="text-sm md:text-lg font-light text-gray-800 leading-relaxed text-justify mb-6">
                 {{ page.introduction }}
             </p>
             {% if page.buttons and page.buttons.size > 0 %}
@@ -42,7 +42,7 @@ layout: default
                 {% for button in page.buttons %}
                 {% if button.url and button.url != "" %}
                 <a href="{{ button.url | relative_url }}" target="_blank"
-                    class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group {% if button.style == false %}bg-white text-gray-800 hover:text-gray-900{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
+                    class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group border border-accent {% if button.style == false %}hover:bg-accent text-accents hover:text-accent{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
                     style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     <span>{{button.text}}</span>
                     <i data-lucide="arrow-right"
@@ -55,29 +55,8 @@ layout: default
         </section>
         {% endif %}
 
-        <!-- Images Gallery -->
-        {% if page.body.images and page.body.images.size > 0 %}
-        <div class="flex flex-col gap-12 my-10 w-full">
-            {% for img in page.body.images %}
-            {% if img.img_url != "" %}
-            <figure class="w-full">
-                <div class="flex justify-center w-full mb-4">
-                    <img src="{{ img.img_url | relative_url }}" alt="{{ img.alt }}"
-                        class="max-w-3xl w-full h-auto object-contain rounded-xl border border-gray-200 shadow-sm" />
-                </div>
-                {% if img.description and img.description != "" %}
-                <figcaption class="w-full text-base text-gray-700 text-justify leading-relaxed">
-                    {{ img.description }}
-                </figcaption>
-                {% endif %}
-            </figure>
-            {% endif %}
-            {% endfor %}
-        </div>
-        {% endif %}
-
         <!-- Main Markdown Body (if any) -->
-        <div class="report-content max-w-none text-gray-800">
+        <div class="report-content max-w-none text-gray-800 text-sm md:text-md">
             {{ content }}
         </div>
 
@@ -86,7 +65,7 @@ layout: default
             {% for button in page.buttons %}
             {% if button.url and button.url != "" %}
             <a href="{{ button.url | relative_url }}" target="_blank"
-                class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group {% if button.style == false %}bg-white text-gray-800 hover:text-gray-900{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
+                class="text-xs md:text-sm inline-flex items-center  justify-center px-6 py-3 font-medium rounded-lg transition-colors group border border-accent {% if button.style == false %}hover:bg-accent text-accents hover:text-accent{% else %}bg-accent text-white hover:bg-white hover:text-accent{% endif %}"
                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                 <span>{{button.text}}</span>
                 <i data-lucide="arrow-right"
