@@ -9,17 +9,13 @@ introduction: "This scorecard evaluates 577 government websites, including 25 mi
 related_reports:
   - title: "Government scorecard final report 1.1"
     url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-    style: true
   - title: "Government scorecard final report 1.2"
     url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-    style: false
 related_blogs:
   - title: "Government scorecard results"
     url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-    style: true
   - title: "The methodology behind the government website scorecard The methodology behind the government website scorecard"
     url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-    style: false
 ---
 
 ![Government Website Scorecard](https://raw.githubusercontent.com/LDFLK/datasets/main/data/reports/website_scorecard/2026/09/25/images/1.png)
