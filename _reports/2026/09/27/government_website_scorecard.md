@@ -7,15 +7,10 @@ date: "2026-09-27"
 cover: "/images/reports/government_website_scorecard.png"
 introduction: "This scorecard evaluates 577 government websites, including 25 ministries and 358 departments, against baseline web standards for Sri Lankan public institutions. A government website is increasingly a citizen’s first and more accessible point of contact with the state when seeking public services or information. It should be secure, reliable, and open to everyone. This initiative was driven by a collaborative, citizen-led effort. On the 5th of September, 24 volunteers came together for the Lanka Data Foundation, Government Website Scorecard Digital Audit, to assess all 577 websites against our evaluation criteria. The results shared here represent data collected by the people, for the people."
 related_reports:
-  - title: "Government scorecard final report 1.1"
-    url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-  - title: "Government scorecard final report 1.2"
-    url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
+  - title: "Government scorecard final report"
+    url: "https://github.com/LDFLK/datasets/blob/6da0205df9aa097e721d14a0fbf2ca8899f460a2/data/reports/website_scorecard/2026/09/25/LDF%20Government%20Website%20Scorecard%20Report%202026-09-25.pdf"
 related_blogs:
-  - title: "Government scorecard results"
-    url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
-  - title: "The methodology behind the government website scorecard The methodology behind the government website scorecard"
-    url: "https://drive.google.com/file/d/1HnHyltlOsA7Wvh9BIB1VN6s07yQTcxEH/view"
+  
 ---
 
 ![Government Website Scorecard](https://raw.githubusercontent.com/LDFLK/datasets/main/data/reports/website_scorecard/2026/09/25/images/1.png)
