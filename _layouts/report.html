@@ -42,18 +42,24 @@ layout: default
                 <!-- related reports -->
                 {% if page.related_reports and page.related_reports.size > 0 %}
                 <div class="flex flex-col gap-2">
-                    <h3 class="text-sm md:text-lg font-semibold text-gray-700 tracking-wide mb-1">
+                    <h3 class="text-sm md:text-lg font-semibold text-accent tracking-wide mb-1">
                         Related Reports
                     </h3>
                     <div style="margin-left: 10px;">
                         {% for related_report in page.related_reports %}
                         {% if related_report.url and related_report.url != "" %}
-                        <div class="flex gap-2 text-sm md:text-lg font-light">
+                        <div class="flex gap-2 text-sm md:text-lg font-light text-sm md:text-lg font-light">
                             <span class="text-gray-500">{{ forloop.index }}.</span>
-                            <a href="{{ related_report.url | relative_url }}" target="_blank"
-                                class="text-accent underline">
+                            <a class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_report.title}}
                             </a>
+                            <div class="text-gray-400 px-2">|</div>
+                            <div class="text-sm flex justify-center items-center gap-4 ml-4">
+                                <a href="{{ related_report.url | relative_url }}" target="_blank"
+                                    class="cursor-pointer text-green-600">View</a>
+                                <a href="{{ related_report.url | replace: '/blob/', '/raw/' }}" target="_blank"
+                                    class="cursor-pointer text-green-600">Download</a>
+                            </div>
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -64,7 +70,7 @@ layout: default
                 <!-- related blogs -->
                 {% if page.related_blogs and page.related_blogs.size > 0 %}
                 <div class="flex flex-col gap-2">
-                    <h3 class="text-sm md:text-lg font-semibold text-gray-700 tracking-wide mb-1">
+                    <h3 class="text-sm md:text-lg font-semibold text-accent tracking-wide mb-1">
                         Related Blogs
                     </h3>
                     <div style="margin-left: 10px;">
@@ -72,10 +78,14 @@ layout: default
                         {% if related_blog.url and related_blog.url != "" %}
                         <div class="flex gap-2 text-sm md:text-lg font-light">
                             <span class="text-gray-500">{{ forloop.index }}.</span>
-                            <a href="{{ related_blog.url | relative_url }}" target="_blank"
-                                class="text-accent underline">
+                            <a class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_blog.title}}
                             </a>
+                            <div class="text-gray-400 px-2">|</div>
+                            <div class="text-sm flex justify-center items-center gap-4 ml-4">
+                                <a href="{{ related_blog.url | relative_url }}" target="_blank"
+                                    class="cursor-pointer text-green-600">View</a>
+                            </div>
                         </div>
                         {% endif %}
                         {% endfor %}
